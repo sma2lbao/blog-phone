@@ -1,6 +1,6 @@
 <template lang="html">
     <div class="artSum">
-        <h1>{{ title }}</h1>
+        <h1 @click="go({path: '/detail', query: {title: title}})">{{ title }}</h1>
         <h2>{{ subtitle }}</h2>
         <span class="artDate"><i class="i-date"></i>{{ date }}</span>
         <p class="art"> {{ article }} </p>
@@ -11,9 +11,15 @@
 </template>
 
 <script>
+
 export default {
     name: 'articleSummary',
-    props: ['title', 'subtitle', 'date', 'article', 'commentCount', 'tags']
+    props: ['title', 'subtitle', 'date', 'article', 'commentCount', 'tags'],
+    methods: {
+        go: function (obj) {
+            this.$router.push(obj);
+        }
+    }
 }
 </script>
 
@@ -25,7 +31,7 @@ export default {
     .artDate{display: block;height: 21px;margin-top: 12px;font-size: 12px;line-height: 21px;color: rgba(0, 0, 0, 0.5);}
     .i-date{display: inline-block;background: url('../images/i-cal.png') no-repeat center center;background-size: 20px 20px;width: 20px;height: 20px;vertical-align: middle;margin-right: 5px;}
     .art{height: 168px;margin: 21px 0;font-size: 14px;line-height: 21px;overflow: hidden;text-align: justify;}
-    .artCom{display: block;height: 21px;font-size: 12px;line-height: 21px;opacity: 0.5;}
+    .artCom{display: block;height: 21px;font-size: 12px;line-height: 21px;color: rgba(0, 0, 0, 0.5);}
     .i-comment{display: inline-block;background: url('../images/i-bubble.png') no-repeat center center;background-size: 20px 20px;height: 21px;width: 20px;vertical-align: middle;margin-right: 5px;}
     .artTags{height: 21px;line-height: 21px;overflow: hidden;margin-top: 6px;color: rgba(0, 0, 0, 0.5);}
     .artTags>span{margin-right: 20px;}

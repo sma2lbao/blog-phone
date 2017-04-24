@@ -26,7 +26,6 @@ export default {
   mounted: function() {
       var dataJson = data;
       this.$data.articlesData = dataJson;
-      console.log(this.$data.articlesData);
   },
   components: { articleSummary, }
 }

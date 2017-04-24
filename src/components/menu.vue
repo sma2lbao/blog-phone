@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="css" scope>
+<style lang="css" scoped>
     .menu{padding: 40px 20px;background-color: #ffdf1f;position: relative;}
     input{width: 100%;border-radius: 20px;height: 40px;border: none;padding: 0 20px;}
     button{width: 20px;height: 20px;border: none;background-color: #fff;position: absolute;top: 50px;right: 50px;}

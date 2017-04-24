@@ -23,8 +23,8 @@ export default {
     components: { comment, },
     mounted: function () {
         var commentJson = commentData;
-        this.$data.comments = commentJson;
-        console.log(this.$data.comments);
+        this.$store.state.commentData = commentJson;
+        this.$data.comments = this.$store.state.commentData;
     },
 }
 </script>

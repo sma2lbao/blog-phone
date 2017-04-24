@@ -1,12 +1,15 @@
 <template lang="html">
-    <div class="blog-main">
-        <header>
-            <i class="i-logo"></i>
-            <i class="i-menu"></i>
-        </header>
-        <articleDetail />
-        <comments />
-    </div>
+    <article class="">
+        <blogMenu v-if="this.$store.state.needMenu" />
+        <div class="blog-main">
+            <header>
+                <i class="i-logo" @click="linkHome"></i>
+                <i class="i-menu" @click="toggleM"></i>
+            </header>
+            <router-view></router-view>
+            <router-view name="page"></router-view>
+        </div>
+    </article>
 </template>
 
 <script>
@@ -14,13 +17,26 @@ import articles from './modules/Articles/articles'
 import comments from './modules/Comment/comments'
 import articleDetail from './modules/Detail/detail'
 import blogMenu from './components/menu'
+
 export default {
     name: 'app',
-    components: { articles, comments, articleDetail,}
+    components: { articles, comments, articleDetail, blogMenu},
+    created: function () {
+        this.$router.push({path: '/home', query: { name: 'sma2lbao' }});
+    },
+    methods: {
+        toggleM: function () {
+            this.$store.commit('toggleMenu');
+        },
+        linkHome: function () {
+            this.$router.push('home');
+        }
+    }
 }
+
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
     .blog-main{padding: 40px 0;}
     .blog-main header{height: 54px;overflow: hidden;padding: 0 20px;}
     .blog-main header i:first-child{float: left;}

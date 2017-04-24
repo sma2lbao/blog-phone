@@ -1,12 +1,16 @@
 <template lang="html">
-    <article class="detail">
-        <h1>{{ detail.title }}</h1>
-        <h2>{{ detail.subtitle }}</h2>
-        <span class="dateStyle"><i class="i-date"></i>{{ detail.date }}</span>
-        <p class="artStyle">{{ detail.article }}</p>
-        <span class="commStyle"><i class="i-comment"></i>{{ detail.commentCount }} Comments</span>
-        <p class="tagsStyle"><span><i class="i-tag"></i>{{ detail.tags }}</span><span><i></i>Thesis</span></p>
-    </article>
+    <div class="">
+        <article class="detail">
+            <h1>{{ detail.title }}</h1>
+            <h2>{{ detail.subtitle }}</h2>
+            <span class="dateStyle"><i class="i-date"></i>{{ detail.date }}</span>
+            <p class="artStyle">{{ detail.article }}</p>
+            <span class="commStyle"><i class="i-comment"></i>{{ detail.commentCount }} Comments</span>
+            <p class="tagsStyle"><span><i class="i-tag"></i>{{ detail.tags }}</span><span><i></i>Thesis</span></p>
+        </article>
+        <router-view></router-view>
+        <router-view name="addComment"></router-view>
+    </div>
 </template>
 
 <script>
@@ -21,8 +25,9 @@ export default {
     mounted: function () {
         var articleObj = articleJson;
         this.$data.detail = articleObj;
-        console.log(this.$data.detail);
-    }
+        console.log(this.$route.query);
+    },
+
 }
 </script>
 
