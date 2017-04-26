@@ -9,11 +9,11 @@ import page from '@/components/page'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: __dirname,
   routes: [
       {
-          path: '/home',
+          path: '/',
           name: 'home',
           components: {
               default: articles,

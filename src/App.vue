@@ -21,15 +21,12 @@ import blogMenu from './components/menu'
 export default {
     name: 'app',
     components: { articles, comments, articleDetail, blogMenu},
-    created: function () {
-        this.$router.push({path: '/home', query: { name: 'sma2lbao' }});
-    },
     methods: {
         toggleM: function () {
             this.$store.commit('toggleMenu');
         },
         linkHome: function () {
-            this.$router.push('home');
+            this.$router.push({name: 'home'});
         }
     }
 }
