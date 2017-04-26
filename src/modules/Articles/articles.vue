@@ -1,16 +1,18 @@
 <template lang="html">
-    <article>
-        <section>
-            <articleSummary v-for="article in articlesData"
-                :title="article.title"
-                :subtitle="article.subtitle"
-                :date="article.date"
-                :article="article.article"
-                :commentCount="article.comments.length"
-                :tags="article.tags"
-            />
-        </section>
-    </article>
+    <transition name="move">
+        <article>
+            <section>
+                <articleSummary v-for="article in articlesData"
+                    :title="article.title"
+                    :subtitle="article.subtitle"
+                    :date="article.date"
+                    :article="article.article"
+                    :commentCount="article.comments.length"
+                    :tags="article.tags"
+                />
+            </section>
+        </article>
+    </transition>
 </template>
 
 <script>
@@ -31,6 +33,7 @@ export default {
 }
 </script>
 
-<style lang="css">
-
+<style lang="css" scoped>
+.move-enter{transform: translateX(-100%);}
+.move-enter-active{transition: all 1s;}
 </style>

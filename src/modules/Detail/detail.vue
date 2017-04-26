@@ -1,16 +1,20 @@
 <template lang="html">
-    <div class="">
-        <article class="detail">
-            <h1>{{ detail.title }}</h1>
-            <h2>{{ detail.subtitle }}</h2>
-            <span class="dateStyle"><i class="i-date"></i>{{ detail.date }}</span>
-            <p class="artStyle">{{ detail.article }}</p>
-            <span class="commStyle"><i class="i-comment"></i>{{ detail.commentCount }} Comments</span>
-            <p class="tagsStyle"><span><i class="i-tag"></i>{{ detail.tags }}</span><span><i></i>Thesis</span></p>
-        </article>
-        <router-view></router-view>
-        <router-view name="addComment"></router-view>
-    </div>
+    <transition name="move">
+        <div class="">
+            <transition name="fade">
+                <article class="detail">
+                <h1>{{ detail.title }}</h1>
+                <h2>{{ detail.subtitle }}</h2>
+                <span class="dateStyle"><i class="i-date"></i>{{ detail.date }}</span>
+                <p class="artStyle">{{ detail.article }}</p>
+                <span class="commStyle"><i class="i-comment"></i>{{ detail.commentCount }} Comments</span>
+                <p class="tagsStyle"><span><i class="i-tag"></i>{{ detail.tags }}</span><span><i></i>Thesis</span></p>
+            </article>
+            </transition>
+            <router-view></router-view>
+            <router-view name="addComment"></router-view>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -42,4 +46,6 @@ export default {
     .commStyle{display: block;color: rgba(0, 0, 0, 0.5);font-size: 14px;margin-top: 40px;}
     .tagsStyle{margin-top: 6px;font-size: 14px;color: rgba(0, 0, 0, 0.5);}
     .i-tag{display: inline-block;background: url('../../images/i-tag.png') no-repeat center center;background-size: 20px 20px;height: 21px;width: 20px;vertical-align: middle;margin-right: 5px;}
+    .move-enter{transform:skewX(90deg);}
+    .move-enter-active{transition: all 1s;}
 </style>

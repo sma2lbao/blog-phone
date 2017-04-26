@@ -1,6 +1,8 @@
 <template lang="html">
     <article class="">
-        <blogMenu v-if="this.$store.state.needMenu" />
+        <transition name="fade">
+                <blogMenu v-if="this.$store.state.needMenu" />
+        </transition>
         <div class="blog-main">
             <header>
                 <i class="i-logo" @click="linkHome"></i>
@@ -40,4 +42,9 @@ export default {
     .blog-main header i:last-child{float: right;}
     .i-logo{display: inline-block;background: url('./images/strange-native-logo.png') no-repeat center center;background-size: 70px 24px;width: 70px;height: 24px;}
     .i-menu{display: inline-block;background: url('./images/i-menu.png') no-repeat center center;background-size: 30px 24px;width: 30px;height: 24px;}
+    .fade-enter{transform: scale(0);}
+    .fade-enter-active{transition: all .9s ease;}
+    .fade-leave-active{transition: all .8s ease;}
+    .fade-leave-active{transform: translateX(100%);}
+    
 </style>
